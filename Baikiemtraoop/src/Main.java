@@ -26,44 +26,54 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.out.print("Item code: ");
-                    int itemCode = scanner.nextInt();
-                    scanner.nextLine(); // consume the newline character
+                    System.out.println("Enter new items (press 0 to stop):");
+                    while (true) {
+                        System.out.print("Item code: ");
+                        int itemCode = scanner.nextInt();
+                        scanner.nextLine();
+                        if (itemCode == 0) {
+                            break;
+                        }
 
-                    System.out.print("Item name: ");
-                    String itemName = scanner.nextLine();
+                        System.out.print("Item name: ");
+                        String itemName = scanner.nextLine();
 
-                    System.out.print("Product group code (1: Electronics, 2: Refrigeration, 3: Computer, 4: Office Equipment): ");
-                    int productGroupCode = scanner.nextInt();
-                    scanner.nextLine(); // consume the newline character
+                        System.out.print("Product group (1=Electronics, 2=Refrigeration, 3=Computer, 4=Office Equipment): ");
+                        int productGroupCode = scanner.nextInt();
+                        scanner.nextLine();
+                        ProductGroup productGroup;
+                        switch (productGroupCode) {
+                            case 1:
+                                productGroup = ProductGroup.ELECTRONICS;
+                                break;
+                            case 2:
+                                productGroup = ProductGroup.REFRIGERATION;
+                                break;
+                            case 3:
+                                productGroup = ProductGroup.COMPUTER;
+                                break;
+                            case 4:
+                                productGroup = ProductGroup.OFFICE_EQUIPMENT;
+                                break;
+                            default:
+                                System.out.println("Invalid product group code. Item not added.");
+                                continue;
+                        }
 
-                    ProductGroup productGroup;
-                    switch (productGroupCode) {
-                        case 1:
-                            productGroup = ProductGroup.ELECTRONICS;
-                            break;
-                        case 2:
-                            productGroup = ProductGroup.REFRIGERATION;
-                            break;
-                        case 3:
-                            productGroup = ProductGroup.COMPUTER;
-                            break;
-                        case 4:
-                            productGroup = ProductGroup.OFFICE_EQUIPMENT;
-                            break;
-                        default:
-                            System.out.println("Invalid product group code. Item not added.");
-                            continue;
+                        System.out.print("Selling price: ");
+                        double sellingPrice = scanner.nextDouble();
+
+                        System.out.print("Quantity: ");
+                        int quantity = scanner.nextInt();
+
+                        Item newItem = new Item(itemCode, itemName, productGroup, sellingPrice, quantity);
+                        itemList.add(newItem);
                     }
 
-                    System.out.print("Selling price: ");
-                    double sellingPrice = scanner.nextDouble();
-
-                    System.out.print("Quantity: ");
-                    int quantity = scanner.nextInt();
-
-                    Item newItem = new Item(itemCode, itemName, productGroup, sellingPrice, quantity);
-                    itemList.add(newItem);
+                    System.out.println("Available items:");
+                    for (Item item : itemList) {
+                        System.out.println(item);
+                    }
                     break;
 
                 case 2:
@@ -91,11 +101,15 @@ public class Main {
                         SalesPerson newSalesperson = new SalesPerson(fullName, address, phoneNumber, employeeCode, contractSigningDate);
                         salespersonList.add(newSalesperson);
                     }
-                    break;
 
+                    System.out.println("6.Existing salespersons:");
+                    for (SalesPerson salesperson : salespersonList) {
+                        System.out.println(salesperson);
+                    }
+                    break;
                 case 3:
                     System.out.println("Enter item code:");
-                    itemCode = scanner.nextInt();
+                    int itemCode = scanner.nextInt();
                     scanner.nextLine(); // consume the newline character
 
                     Item foundItem = null;
