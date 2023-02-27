@@ -13,14 +13,6 @@ public class SalesList {
         this.SalesPerson = salesperson;
         this.itemsSold = new ArrayList<>();
     }
-
-    public void addItem(Item item) {
-        if (itemsSold.size() >= 5) {
-            throw new IllegalStateException("Cannot sell more than 5 items per salesperson in a day.");
-        }
-        itemsSold.add(item);
-    }
-
     public double getTotalSalesAmount() {
         double total = 0;
         for (Item item : itemsSold) {

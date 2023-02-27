@@ -29,4 +29,12 @@ public class SalesPerson extends  Human {
     public void addSale(Item itemToSell, int quantityToSell, double totalSales) {
 
     }
+
+    @Override
+    public String toString() {
+        return "SalesPerson{" +
+                "employeeCode=" + employeeCode +
+                ", contractSigningDate=" + contractSigningDate +
+                '}';
+    }
 }

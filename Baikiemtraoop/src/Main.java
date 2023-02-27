@@ -110,7 +110,7 @@ public class Main {
                 case 3:
                     System.out.println("Enter item code:");
                     int itemCode = scanner.nextInt();
-                    scanner.nextLine();
+                    scanner.nextLine(); //
 
                     Item foundItem = null;
                     for (Item item : itemList) {
@@ -125,6 +125,31 @@ public class Main {
                         System.out.println(foundItem);
                     } else {
                         System.out.println("Item not found.");
+                    }
+                    break;
+
+                case 4:
+                    if (salespersonList.isEmpty()) {
+                        System.out.println("No salespersons found.");
+                    } else {
+                        System.out.println("Enter salesperson ID:");
+                        int salespersonId = scanner.nextInt();
+                        scanner.nextLine();
+
+                        SalesPerson foundSalesperson = null;
+                        for (SalesPerson salesperson : salespersonList) {
+                            if (salesperson.getEmployeeCode() == salespersonId) {
+                                foundSalesperson = salesperson;
+                                break;
+                            }
+                        }
+
+                        if (foundSalesperson != null) {
+                            System.out.println("Salesperson details:");
+                            System.out.println(foundSalesperson);
+                        } else {
+                            System.out.println("Salesperson not found.");
+                        }
                     }
                     break;
 
