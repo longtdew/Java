@@ -10,7 +10,7 @@ public enum ProductGroup {
         private double sellingPrice;
         private int quantity;
 
-        private static int nextItemCode = 1000; // start item code at 1000 and increment by 1
+        private static int nextItemCode = 1000;
 
         public Item(String itemName, ProductGroup productGroup, double sellingPrice, int quantity) {
             this.itemCode = nextItemCode++;

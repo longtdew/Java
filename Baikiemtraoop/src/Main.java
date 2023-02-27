@@ -22,7 +22,7 @@ public class Main {
             System.out.println("6. Exit");
 
             int option = scanner.nextInt();
-            scanner.nextLine(); // consume the newline character
+            scanner.nextLine();
 
             switch (option) {
                 case 1:
@@ -110,7 +110,7 @@ public class Main {
                 case 3:
                     System.out.println("Enter item code:");
                     int itemCode = scanner.nextInt();
-                    scanner.nextLine(); // consume the newline character
+                    scanner.nextLine();
 
                     Item foundItem = null;
                     for (Item item : itemList) {
