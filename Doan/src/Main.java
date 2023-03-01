@@ -95,15 +95,20 @@ public class Main {
 
         while (!gameOver) {
             System.out.println("\tYou look around the room and see three doors. Door 1 is to the left of the room, door 2 is to the");
-            System.out.println("right of the room, and door 3 is directly in front of you.\n");
+            System.out.println("right of the room, door 3 is next to the 4th door which is directly in front of you.\n");
             System.out.println("Actions Left: " + actionsLeft);
             System.out.println("\nWhich room would you like to explore? Enter 1, 2, 3, or 4: ");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
 
             if (choice == 1) {
-                System.out.println("\nYou enter the first room.");
                 System.out.println("You find nothing of interest here.");
+                System.out.print("Enter 1 to search the room more thoroughly, or any other number to continue: ");
+                int searchChoice = scanner.nextInt();
+                if (searchChoice == 1) {
+                    System.out.println("You search the room more thoroughly and find some meat.");
+                    hasMeat = true;
+                }
                 actionsLeft--;
             } else if (choice == 2) {
                 System.out.println("\nYou enter the second room.");
